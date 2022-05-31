@@ -20,11 +20,16 @@ end
 
 # puts Employee.joins(:stores).where(store_id: == 1)
 
+puts "enter store name"
+custom_name = gets.chomp
+
 @new_store = Store.new
-@new_store.name = "hi"
+@new_store.name = custom_name
 @new_store.annual_revenue = 400000
 @new_store.mens_apparel = false
 @new_store.womens_apparel = true
 
-@new_store.save
+puts @new_store.save!
 
+puts "- done ex 7 - store count: #{Store.count}"
+puts "- employee count: #{Employee.count}"
