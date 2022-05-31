@@ -9,12 +9,16 @@ require_relative './exercise_6'
 puts "Exercise 7"
 puts "----------"
 
+
+puts "- store count before: #{Store.count}"
+puts "- employee count before: #{Employee.count}"
+
 def create_person
   puts "new person acceptable?: " + yield.valid?.to_s
 end
 
 @new_person1 = create_person { @new_employee = @store1.employees.create(first_name: "REAL", last_name: "PERSON", hourly_rate: 60) }
-@new_person2 = create_person { @new_employee = @store1.employees.create(last_name: "NOT REAL", hourly_rate: 50) }
+@new_person2 = create_person { @new_employee = @store1.employees.create(first_name: nil, last_name: "NOT REAL", hourly_rate: 50) }
 
 @store1.save
 
@@ -29,7 +33,8 @@ custom_name = gets.chomp
 @new_store.mens_apparel = false
 @new_store.womens_apparel = true
 
-puts @new_store.save!
+@new_store.save
+puts @new_store.errors.messages
 
-puts "- done ex 7 - store count: #{Store.count}"
-puts "- employee count: #{Employee.count}"
+puts "- done ex 7 - store count after: #{Store.count}"
+puts "- employee count after: #{Employee.count}"
