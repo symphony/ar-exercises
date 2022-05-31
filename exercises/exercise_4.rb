@@ -31,11 +31,10 @@ ylt.save
 puts "- added new stores - store count: #{Store.count}"
 
 @mens_stores = Store.where(mens_apparel: true, womens_apparel: false )
+@womens_stores = Store.where(mens_apparel: false, womens_apparel: true).where("annual_revenue < ?", 1e6)
 
 puts "- men's stores: #{@mens_stores.length}"
 @mens_stores.each {|store| puts "#{store.name}: $#{store.annual_revenue} revenue"}
-
-@womens_stores = Store.where(mens_apparel: false, womens_apparel: true).where("annual_revenue < ?", 1e6)
 
 puts "- women's stores: #{@womens_stores.length}"
 @womens_stores.each {|store| puts "#{store.name}: $#{store.annual_revenue} revenue"}
