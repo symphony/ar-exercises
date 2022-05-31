@@ -35,7 +35,7 @@ puts "- added new stores - store count: #{Store.count}"
 puts "- men's stores: #{@mens_stores.length}"
 @mens_stores.each {|store| puts "#{store.name}: $#{store.annual_revenue} revenue"}
 
-@womens_stores = Store.where(mens_apparel: false, womens_apparel: true, "annual_revenue <": 1e6 )
+@womens_stores = Store.where(mens_apparel: false, womens_apparel: true).where("annual_revenue < ?", 1e6)
 
 puts "- women's stores: #{@womens_stores.length}"
 @womens_stores.each {|store| puts "#{store.name}: $#{store.annual_revenue} revenue"}
