@@ -6,27 +6,27 @@ require_relative './exercise_3'
 puts "Exercise 4"
 puts "----------"
 
-surr = Store.new
-surr.name = "Surrey"
-surr.annual_revenue = 224000
-surr.mens_apparel = false
-surr.womens_apparel = true
+@surr = Store.new
+@surr.name = "Surrey"
+@surr.annual_revenue = 224000
+@surr.mens_apparel = false
+@surr.womens_apparel = true
 
-whst = Store.new
-whst.name = "Whistler"
-whst.annual_revenue = 1900000
-whst.mens_apparel = true
-whst.womens_apparel = false
+@whst = Store.new
+@whst.name = "Whistler"
+@whst.annual_revenue = 1900000
+@whst.mens_apparel = true
+@whst.womens_apparel = false
 
-ylt = Store.new
-ylt.name = "Yaletown"
-ylt.annual_revenue = 430000
-ylt.mens_apparel = true
-ylt.womens_apparel = true
+@ylt = Store.new
+@ylt.name = "Yaletown"
+@ylt.annual_revenue = 430000
+@ylt.mens_apparel = true
+@ylt.womens_apparel = true
 
-surr.save
-whst.save
-ylt.save
+@surr.save
+@whst.save
+@ylt.save
 
 puts "- added new stores - store count: #{Store.count}"
 
