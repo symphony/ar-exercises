@@ -24,3 +24,5 @@ gas.womens_apparel = false
 bby.save
 rch.save
 gas.save
+
+puts "- done ex 1 - store count: #{Store.count}"

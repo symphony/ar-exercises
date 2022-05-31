@@ -9,4 +9,7 @@ puts "----------"
 
 @store1.name = "hello?"
 
+puts "-- name before: #{Store.find_by(id: 1).name}"
 @store1.save
+puts "-- name after: #{Store.find_by(id: 1).name}"
+puts "- done ex 2 - store count: #{Store.count}"
